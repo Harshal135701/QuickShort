@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickShort | Signup</title>
+
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT SIDE -->
+    <div class="left-side">
+        <div class="overlay">
+            <h1 class="project-name">🔗 QuickShort</h1>
+            <p class="tagline">Shorten your long URLs in seconds</p>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-side">
+        <div class="card">
+            <h2>Create Account</h2>
+
+            <form action="/user" method="post" autocomplete="off" class="form">
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required autocomplete="new-password">
+
+                <input type="submit" value="Signup" class="btn primary">
+            </form>
+
+            <% if(typeof error !== 'undefined'){ %>
+                <div class="error-box">
+                    <span><%= error %></span>
+                    <a href="/signuppage" class="retry">Try again</a>
+                </div>
+            <% } %>
+
+            <div class="footer-link">
+                <p>Already have an account?</p>
+                <a href="/login" class="btn secondary">Login</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

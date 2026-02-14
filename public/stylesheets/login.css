@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+/* Layout */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT SIDE */
+.left-side {
+    flex: 1;
+    background: url("https://www.bulkgate.com/en/blog/url-shortener-benefits/") no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-side .overlay {
+    background: rgba(0,0,0,0.55);
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-name {
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* RIGHT SIDE */
+.right-side {
+    flex: 1;
+    background: #f4f6f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CARD */
+.card {
+    width: 360px;
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+.form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background: #5a67d8;
+    color: white;
+}
+
+.secondary {
+    background: #edf2f7;
+    color: #333;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 8px;
+}
+
+/* error box */
+.error-box {
+    margin-top: 15px;
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 8px;
+    color: red;
+    text-align: center;
+}

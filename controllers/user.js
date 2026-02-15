@@ -84,11 +84,38 @@ function logOutRoute(req, res) {
     return res.redirect('/login')
 }
 
+async function DeleteTheUrl(req, res) {
+    try {
+        const urlId = req.params.id;
+        const userId = req.user.userId
+        console.log(urlId)
+        console.log(userId)
+        if (!urlId || !userId) {
+            return res.redirect('/shortUrlHomePage')
+        }
+        // const deleteUrl = await urlModel.findByIdAndDelete(urlId);
+        const deleteUrl = await urlModel.deleteOne({
+            createdBy: userId,
+            _id: urlId
+        })
+        // implimated the attribute based access control athorization
+
+        const isDeleted=deleteUrl.deletedCount===1
+        if (!isDeleted) {
+            return res.redirect('/shortUrlHomePage')
+        }
+        return res.redirect('/shortUrlHomePage')
+    }
+    catch (err) {
+         return res.redirect('/shortUrlHomePage')
+    }   
+}
+
 
 module.exports = {
     HandleUserSignUpData,
     HandleUserLoginData,
     HandleUrl,
     logOutRoute,
-
+    DeleteTheUrl
 }

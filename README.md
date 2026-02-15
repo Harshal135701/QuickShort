@@ -27,7 +27,7 @@
 ![Login](./screenshots/login.png)
 
 ### 🏠 Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/dashboard2.png)
 
 **How to run locally**
 

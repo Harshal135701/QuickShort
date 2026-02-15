@@ -1,11 +1,12 @@
 # 🔗 URL Shortener (Node.js + Express + MongoDB)
 
 **Features**
-- User Signup & Login (JWT + Cookies)
-- Create Short URLs
-- Track number of visits
-- Store creation date
-- Logout functionality
+
+- JWT Authentication
+- Authorization (owner-based delete)
+- MVC Architecture
+- Visit Tracking
+- URL Shortening
 
 **Tech Stack**
 - Node.js

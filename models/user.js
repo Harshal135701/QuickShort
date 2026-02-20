@@ -9,6 +9,9 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    profilepic:{
+        type:String
     }
 },{timestamps: true});
 

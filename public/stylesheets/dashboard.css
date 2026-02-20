@@ -1,14 +1,8 @@
-* {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* BODY */
-body {
-    background: #f5f7fb;
-    color: #333;
 }
 
 /* NAVBAR */
@@ -16,61 +10,81 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 40px;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: #5a67d8;
+    color: white;
+    padding: 15px 30px;
 }
 
 .logo {
-    color: #5a67d8;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .logout-btn {
-    background: #e53e3e;
-    color: white;
+    background: white;
+    color: #5a67d8;
     border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
+    padding: 8px 15px;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+/* PROFILE HEADER */
+.profile-header {
+    max-width: 1000px;
+    margin: 30px auto 10px auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-large {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #5a67d8;
+}
+
+.welcome-text {
+    font-weight: 500;
+    color: #444;
 }
 
 /* MAIN CONTAINER */
 .container {
-    padding: 40px;
     max-width: 1000px;
     margin: auto;
 }
 
-/* CARDS */
+/* CARD DESIGN */
 .card {
     background: white;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 }
 
-/* URL FORM */
+/* FORM */
 .url-form {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .url-form input {
     flex: 1;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 .url-form button {
     background: #5a67d8;
     color: white;
     border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 10px 15px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
@@ -78,34 +92,20 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
-thead {
-    background: #f1f3f9;
-}
-
-th, td {
-    padding: 12px;
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
-    border-bottom: 1px solid #eee;
 }
 
-th {
-    font-size: 14px;
-    color: #555;
+table th {
+    background: #f0f0f0;
 }
 
-td a {
+table a {
     color: #5a67d8;
     text-decoration: none;
-    font-weight: 500;
-}
-
-/* long url truncate */
-.truncate {
-    max-width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

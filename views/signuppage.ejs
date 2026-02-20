@@ -25,13 +25,16 @@
         <div class="card">
             <h2>Create Account</h2>
 
-            <form action="/user" method="post" autocomplete="off" class="form">
+            <form action="/user" method="post" autocomplete="off" class="form" enctype="multipart/form-data">
 
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Enter your email" required>
 
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Enter your password" required autocomplete="new-password">
+                <label>Profile Picture:</label>
+            
+                <input type="file" name="profilepic" accept="image/*">
 
                 <input type="submit" value="Signup" class="btn primary">
             </form>

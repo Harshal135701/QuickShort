@@ -1,98 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickShort | Dashboard</title>
-
+    <title>Short URL Dashboard</title>
     <link rel="stylesheet" href="/stylesheets/dashboard.css">
 </head>
-
 <body>
 
-    <!-- ===== NAVBAR ===== -->
+    <!-- NAVBAR -->
     <nav class="navbar">
-        <h1 class="logo">🔗 QuickShort</h1>
+        <div class="logo">ShortURL</div>
 
         <form action="/logout" method="post">
             <button class="logout-btn">Logout</button>
         </form>
     </nav>
 
+    <!-- PROFILE HEADER -->
+    <div class="profile-header">
+        <% if(user.profilepic) { %>
+            <img class="profile-large" src="/uploads/profiles/<%= user.profilepic %>" />
+        <% } else { %>
+            <img class="profile-large" src="/images/default.png" />
+        <% } %>
 
-    <!-- ===== MAIN CONTENT ===== -->
+        <h2 class="welcome-text">Hey 👋 Welcome to URL Shortener</h2>
+    </div>
+
+    <!-- MAIN CONTAINER -->
     <div class="container">
 
-        <!-- CREATE SHORT URL -->
-        <div class="card create-card">
-            <h2>Create Short URL</h2>
+        <!-- CREATE SHORT URL CARD -->
+        <div class="card">
+            <h3>Create Short URL</h3>
 
             <form action="/shortUrlHomePage" method="post" class="url-form">
-                <input type="text" name="url" placeholder="Enter your long URL here..." required>
+                <input type="text" name="url" placeholder="Enter your long URL" required />
                 <button type="submit">Shorten</button>
             </form>
         </div>
-       
 
-                <!-- URL TABLE -->
-                <% if(urls.length> 0) { %>
+        <!-- URL TABLE -->
+        <div class="card">
+            <h3>Your URLs</h3>
 
-                    <div class="card table-card">
-                        <h2>Your Links</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Short URL</th>
+                        <th>Original URL</th>
+                        <th>Clicks</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Short URL</th>
-                                    <th>Original URL</th>
-                                    <th>Visits</th>
-                                    <th>Created At</th>
-                                    <th>Delete Url</th>
-                                </tr>
-                            </thead>
+                <tbody>
+                    <% urls.forEach(url => { %>
+                        <tr>
+                            <td>
+                                <a href="/<%= url.shorturl %>" target="_blank">
+                                    <%= url.shorturl %>
+                                </a>
+                            </td>
 
-                            <tbody>
-                                <% urls.forEach((url)=> { %>
-                                    <tr>
-                                        <td>
-                                            <a href="/<%= url.shorturl %>" target="_blank">
-                                                <%= url.shorturl %>
-                                            </a>
-                                        </td>
+                            <td class="truncate"><%= url.redirect %></td>
 
-                                        <td class="truncate">
-                                            <%= url.redirect %>
-                                        </td>
+                            <td>
+                                <%= url.visited ? url.visited.length : 0 %>
+                            </td>
 
-                                        <td>
-                                            <%= url.visited.length %>
-                                        </td>
-
-                                        <td>
-                                            <%= new Date(url.createdAt).toLocaleString() %>
-                                        </td>
-                                        <td>
-                                            <form action="/url/delete/<%=url._id%>" method="post">
-                                                <button type="submit">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <% }) %>
-                            </tbody>
-
-                        </table>
-                    </div>
-
-
-                    <%}else{%>
-                        <p>
-                            No data yet
-                        </p>
-                        <%}%>
+                            <td>
+                                <form action="/url/delete/<%= url._id %>" method="post">
+                                    <button class="delete-btn">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 
 </body>
-
 </html>

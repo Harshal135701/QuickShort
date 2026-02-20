@@ -16,6 +16,8 @@ require("dotenv").config()
 // Setting the paths
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
+app.use("/uploads",express.static("uploads"));
+
 
 // Middleware to parse standard form data
 app.use(express.urlencoded({ extended: true }));

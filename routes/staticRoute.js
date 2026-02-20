@@ -1,5 +1,6 @@
 const express = require('express')
 const URL = require('../models/url')
+const userModel=require('../models/user')
 const router = express.Router()
 const { authMiddleware } = require('../middlewares/auth')
 const { logOutRoute } = require('../controllers/user')
@@ -13,8 +14,13 @@ router.get('/', (req, res) => {
 })
 
 router.get('/shortUrlHomePage', authMiddleware, async (req, res) => {
+    const userId = req.user.userId;
+    const user = await userModel.findById(userId);
     const urls = await URL.find({ createdBy: req.user.userId });
-    return res.render('shortUrlHomePage', { urls });
+    return res.render('shortUrlHomePage', {
+        user,
+        urls
+    });
 })
 
 router.get('/signuppage', (req, res) => {

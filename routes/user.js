@@ -1,12 +1,25 @@
 const express = require('express')
-const { authMiddleware } = require('../middlewares/auth')
 const router = express.Router()
-const { HandleUserSignUpData, HandleUserLoginData, HandleUrl } = require('../controllers/user')
-const {DeleteTheUrl}=require('../controllers/user')
 
-router.post('/user', HandleUserSignUpData)
+// middlewares
+const { authMiddleware } = require('../middlewares/auth')
+const uploadedMiddleware = require('../middlewares/uploadProfilePic')
+
+// controllers (IMPORTANT: import everything in ONE object)
+const userController = require('../controllers/user')
+
+const {
+    HandleUserSignUpData,
+    HandleUserLoginData,
+    HandleUrl,
+    DeleteTheUrl
+} = userController
+
+
+// routes
+router.post('/user', uploadedMiddleware, HandleUserSignUpData)
 router.post('/login', HandleUserLoginData)
 router.post('/shortUrlHomePage', authMiddleware, HandleUrl)
-router.post('/url/delete/:id',authMiddleware,DeleteTheUrl)
+router.post('/url/delete/:id', authMiddleware, DeleteTheUrl)
 
 module.exports = router
